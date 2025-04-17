@@ -1,0 +1,17 @@
+:root {
+    --primaryColor: #00e7c1;
+    --secondaryColor: #7928ca;
+    --backgroundColor:#000;
+  }
+  
+  .primaryColor {
+    color: var(--primaryColor) !important; 
+  }
+  
+  .secondaryColor {
+    color: var(--secondaryColor) !important;
+  }
+
+  .backgrColor{
+    background-color: var(--backgroundColor);
+  }
