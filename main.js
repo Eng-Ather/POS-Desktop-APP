@@ -5,7 +5,6 @@ const isDev = process.env.NODE_ENV !== "development"
 
 function createMainWindow() {
   const win = new BrowserWindow({
-    title: 'POS',
     width: 800,
     height: 600,
     fullscreenable: true
@@ -15,13 +14,14 @@ function createMainWindow() {
 };
 
 
-function createAboutWindow() {
+function createSalesmanDashboardWindow() {
   const win = new BrowserWindow({
-    title: 'About',
     width: 800,
     height: 600,
+    fullscreenable: true
   });
-  win.loadFile("./src/about.html");
+  if (isDev) win.webContents.openDevTools()
+  win.loadFile("./src/screens/salesmanDashboard/index.html");
 };
 
 
