@@ -1,48 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="Content-Security-Policy" content="script-src 'self'" />
-    <title>Sign In</title>
-    <link rel="stylesheet" href="style.css" />
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Content-Security-Policy" content="script-src 'self'" />
+  <title>Sign In</title>
+  <link rel="stylesheet" href="style.css" />
 
 </head>
-  <body>
-    <div class="container">
-      <div class="image-container">
-        <img src="screens/images/dashboardImg.png"  alt="POS" />
-      </div>
-      <div class="form-container">
-        <div class="header">
-          <h1>Sign In</h1>
-          <p>Enter your credentials to continue</p>
-        </div>
-        <form>
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input
-              class="inputs"
-              type="email"
-              id="email"
-              placeholder="Enter your email"
-            />
-          </div>
-          <div class="form-group">
-            <label for="password">Password</label>
-            <input
-              class="inputs"
-              type="password"
-              id="password"
-              placeholder="Enter your password"
-            />
-          </div>
-          <a href="#" class="forgot-password">Forgot password?</a>
-          <button type="submit" class="sign-in-button">
-            <a href="./screens/salesmanDashboard/index.html">Sign In</a>
-          </button>
-        </form>
-      </div>
+
+<body>
+  <div class="container">
+    <div class="image-container">
+      <img src="screens/images/dashboardImg.png" alt="POS" />
     </div>
-  </body>
+    <div class="form-container">
+      <div class="header">
+        <h1>Sign In</h1>
+        <p>Enter your credentials to continue</p>
+      </div>
+      <form>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input class="inputs" type="email" id="email" placeholder="Enter your email" />
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input class="inputs" type="password" id="password" placeholder="Enter your password" />
+        </div>
+        <a href="#" class="forgot-password">Forgot password?</a>
+        <button type="submit" class="sign-in-button">
+          <!-- <a href="./screens/dashboard/adminDashboard/index.html">Sign In</a> -->
+          <a href="./screens/salesmanDashboard/index.html">Sign In</a>
+        </button>
+      </form>
+    </div>
+  </div>
+</body>
+
 </html>
