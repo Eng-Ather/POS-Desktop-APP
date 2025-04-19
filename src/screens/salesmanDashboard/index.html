@@ -4,10 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>POS Dashboard</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../../css/globalStyles.css" />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div class="container">
+      <!-- Products Section (70%) -->
       <div class="products-section">
         <header>
           <div class="header-title">
@@ -20,14 +22,6 @@
           </div>
         </header>
 
-        <div class="category-filters">
-          <button class="category-btn active">All Products</button>
-          <button class="category-btn">Electronics</button>
-          <button class="category-btn">Clothing</button>
-          <button class="category-btn">Food & Beverages</button>
-          <button class="category-btn">Home & Kitchen</button>
-          <button class="category-btn">Health & Beauty</button>
-        </div>
 
         <div class="products-grid">
           <!-- Product Cards -->
@@ -259,9 +253,11 @@
           <button class="action-btn btn-hold">Hold</button>
           <button class="action-btn btn-void">Void</button>
           <button class="action-btn btn-discount">Discount</button>
-          <button class="action-btn btn-checkout">Checkout</button>
+          <button class="btn-checkout btn" id="checkout-btn">Checkout</button>
         </div>
       </div>
     </div>
+
+    <script type="module" src="app.js"></script>
   </body>
 </html>

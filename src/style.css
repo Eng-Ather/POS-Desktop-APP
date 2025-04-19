@@ -78,11 +78,9 @@ body {
   transition: border-color 0.2s;
 }
 
-
-
 .form-group input:focus {
-    outline: none;
-    border-color: #00e7c1;
+  outline: none;
+  border-color: #00e7c1;
 }
 
 .forgot-password {
@@ -111,13 +109,13 @@ body {
   transition: background-color 0.2s;
 }
 
-.sign-in-button a{
-    color: white;
-    text-decoration: none;
+.sign-in-button a {
+  color: white;
+  text-decoration: none;
 }
 .sign-in-button:hover {
-    border-color: #00e7c1;
-  background-color: hsl(240 4.62% 12.75%)
+  border-color: #00e7c1;
+  background-color: hsl(240 4.62% 12.75%);
 }
 
 /* Responsive adjustments */

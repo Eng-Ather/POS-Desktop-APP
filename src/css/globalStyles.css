@@ -1,17 +1,58 @@
 :root {
-    --primaryColor: #00e7c1;
-    --secondaryColor: #7928ca;
-    --backgroundColor:#000;
-  }
-  
-  .primaryColor {
-    color: var(--primaryColor) !important; 
-  }
-  
-  .secondaryColor {
-    color: var(--secondaryColor) !important;
-  }
+  --primaryColor: #00e7c1;
+  --secondaryColor: #7928ca;
+  --backgroundColor: #000;
+}
 
-  .backgrColor{
-    background-color: var(--backgroundColor);
-  }
+.primaryColor {
+  color: var(--primaryColor) !important;
+}
+
+.secondaryColor {
+  color: var(--secondaryColor) !important;
+}
+
+.backgrColor {
+  background-color: var(--backgroundColor) !important;
+}
+
+.btn {
+  width: 100%;
+  padding: 0.75rem;
+  border-width: 2px;
+  color: white;
+  background-color: hsl(240 4.62% 12.75%);
+  border-color: hsl(0deg 0% 100% / 12%);
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn:hover {
+  border-color: #00e7c1;
+  background-color: hsl(240 4.62% 12.75%);
+}
+
+.input {
+  width: 100%;
+  color: black;
+  padding: 0.75rem;
+  border-width: 2px;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #00e7c1;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
