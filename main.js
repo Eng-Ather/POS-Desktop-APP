@@ -1,4 +1,5 @@
 import { app, BrowserWindow } from "electron";
+import { MongoClient } from "mongodb"
 
 const isDev = process.env.NODE_ENV !== "development";
 
@@ -7,6 +8,10 @@ function createMainWindow() {
     width: 800,
     height: 600,
     fullscreenable: true,
+    webPreferences: {
+      nodeIntegration: true, // Security recommendation
+      contextIsolation: false,
+    },
   });
   if (isDev) win.webContents.openDevTools();
   win.loadFile("./src/index.html");
@@ -17,6 +22,10 @@ function createSalesmanDashboardWindow() {
     width: 800,
     height: 600,
     fullscreenable: true,
+    webPreferences: {
+      nodeIntegration: true, // Security recommendation
+      contextIsolation: false,
+    },
   });
   if (isDev) win.webContents.openDevTools();
   win.loadFile("./src/screens/salesmanDashboard/index.html");

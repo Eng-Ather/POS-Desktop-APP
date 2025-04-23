@@ -2,15 +2,16 @@
   "name": "pos",
   "version": "1.0.0",
   "main": "main.js",
-  "type": "module", 
+  "type": "module",
   "scripts": {
-    "start":"electron .",
+    "start": "electron .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "electron": "^35.1.5"
+    "electron": "^35.1.5",
+    "mongodb": "^6.16.0"
   }
 }
