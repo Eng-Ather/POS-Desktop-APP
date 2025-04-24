@@ -1,7 +1,22 @@
-import { app, BrowserWindow } from "electron";
-import { MongoClient } from "mongodb"
+import { app, BrowserWindow, ipcMain } from "electron";
+import { usersCollection } from "./database/connect.js";
+import path, { dirname } from "path";
+import { fileURLToPath } from "url";
+
+ipcMain.on("signup-user", async (event, data) => {
+  const existing = await usersCollection.findOne({ email: data.email });
+  if (existing) {
+    event.reply("signup-response", { success: false, msg: "Email exists" });
+  } else {
+    await usersCollection.insertOne(data);
+    event.reply("signup-response", { success: true, msg: "User created" });
+  }
+});
 
 const isDev = process.env.NODE_ENV !== "development";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 function createMainWindow() {
   const win = new BrowserWindow({
@@ -9,8 +24,9 @@ function createMainWindow() {
     height: 600,
     fullscreenable: true,
     webPreferences: {
-      nodeIntegration: true, // Security recommendation
-      contextIsolation: false,
+      preload: path.join(__dirname, "preload.js"),
+      nodeIntegration: false,
+      contextIsolation: true,
     },
   });
   if (isDev) win.webContents.openDevTools();
@@ -23,8 +39,9 @@ function createSalesmanDashboardWindow() {
     height: 600,
     fullscreenable: true,
     webPreferences: {
-      nodeIntegration: true, // Security recommendation
-      contextIsolation: false,
+      preload: path.join(__dirname, "preload.js"),
+      nodeIntegration: false,
+      contextIsolation: true,
     },
   });
   if (isDev) win.webContents.openDevTools();
