@@ -1,145 +1,217 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product</title>
+    <title>Product Management</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-
-
     <div class="admin-container">
         <aside class="sidebar">
-            <h2 class="primaryColor"><i class="fas fa-cash-register"></i> POS Admin</h2>
+            <h2 class="primaryColor">POS Admin</h2>
             <nav>
                 <ul>
-                    <li class="active"><a href="#dashboard"><i class="fas fa-boxes"></i> Dashboard</a></li>
-                    <li><a href="./adminScreens/products/index.html"><i class="fas fa-tachometer-alt"></i> Products</a></li>
-                    <li><a href="./adminScreens/reports/index.html"><i class="fas fa-chart-bar"></i> Reports</a></li>
-                    <li><a href="./adminScreens/sales/index.html"><i class="fas fa-receipt"></i> Sales</a></li>
-                    <li><a href="#"><i class="fas fa-cog"></i> Settings</a></li>
+                    <li><a href="../../index.html">Dashboard</a></li>
+                    <li class="active"><a href="./index.html">Products</a></li>
+                    <li><a href="../reports/index.html">Reports</a></li>
+                    <li><a href="../sales/index.html">Sales</a></li>
+                    <li><a href="#">Settings</a></li>
                 </ul>
             </nav>
         </aside>
-    
-        <main class="content">
-            <header class="topbar">
-                <div class="search">
-                    <i class="fas fa-search"></i>
-                    <input type="text" placeholder="Search transactions, products...">
+
+        <main class="main-content">
+            <div class="page-header">
+                <h1 class="page-title">Product Management</h1>
+                <button class="add-product-btn">
+                    <i class="fas fa-plus"></i> Add Product
+                </button>
+            </div>
+
+            <div class="search-filter-bar">
+                <div class="search-bar">
+                    <input type="text" placeholder="Search products...">
                 </div>
-                <div class="user-profile">
-                    <span>Admin User</span>
-                    <div class="avatar">AU</div>
+                <div class="filter-options">
+                    <select class="filter-select">
+                        <option value="">All Categories</option>
+                        <option value="electronics">Electronics</option>
+                        <option value="clothing">Clothing</option>
+                        <option value="food">Food & Beverages</option>
+                        <option value="home">Home & Kitchen</option>
+                        <option value="health">Health & Beauty</option>
+                    </select>
+                    <select class="filter-select">
+                        <option value="">Stock Status</option>
+                        <option value="in-stock">In Stock</option>
+                        <option value="low-stock">Low Stock</option>
+                        <option value="out-of-stock">Out of Stock</option>
+                    </select>
                 </div>
-            </header>
-    
-            <section id="dashboard" class="dashboard-section">
-                <h1>Dashboard Overview</h1>
-                
-                <div class="stats-grid">
-                    <div class="stat-card today-sales">
-                        <h3><i class="fas fa-dollar-sign"></i> Today's Sales</h3>
-                        <p>$1,245.00</p>
-                        <small>+12% from yesterday</small>
-                    </div>
-                    <div class="stat-card total-products">
-                        <h3><i class="fas fa-box-open"></i> Total Products</h3>
-                        <p>128</p>
-                        <small>5 new this week</small>
-                    </div>
-                    <div class="stat-card new-orders">
-                        <h3><i class="fas fa-shopping-cart"></i> New Orders</h3>
-                        <p>24</p>
-                        <small>3 pending fulfillment</small>
-                    </div>
-                    <div class="stat-card low-stock">
-                        <h3><i class="fas fa-exclamation-triangle"></i> Low Stock</h3>
-                        <p>8</p>
-                        <small>Items need reorder</small>
-                    </div>
+            </div>
+
+            <div class="products-table-container">
+                <table class="products-table">
+                    <thead>
+                        <tr>
+                            <th>Image</th>
+                            <th>Product</th>
+                            <th>Category</th>
+                            <th>Price</th>
+                            <th>Stock</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><img src="https://via.placeholder.com/50" alt="Smartphone" class="product-image"></td>
+                            <td>
+                                <div class="product-name">Smartphone X Pro</div>
+                                <div class="product-category">Electronics</div>
+                            </td>
+                            <td>Electronics</td>
+                            <td class="product-price">$899.99</td>
+                            <td class="product-stock in-stock">In Stock (24)</td>
+                            <td>
+                                <div class="product-actions">
+                                    <button class="action-btn edit-btn">Edit</button>
+                                    <button class="action-btn delete-btn">Delete</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><img src="https://via.placeholder.com/50" alt="Laptop" class="product-image"></td>
+                            <td>
+                                <div class="product-name">Ultrabook Slim 14"</div>
+                                <div class="product-category">Electronics</div>
+                            </td>
+                            <td>Electronics</td>
+                            <td class="product-price">$1299.99</td>
+                            <td class="product-stock in-stock">In Stock (12)</td>
+                            <td>
+                                <div class="product-actions">
+                                    <button class="action-btn edit-btn">Edit</button>
+                                    <button class="action-btn delete-btn">Delete</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><img src="https://via.placeholder.com/50" alt="Headphones" class="product-image"></td>
+                            <td>
+                                <div class="product-name">Wireless Headphones</div>
+                                <div class="product-category">Electronics</div>
+                            </td>
+                            <td>Electronics</td>
+                            <td class="product-price">$149.99</td>
+                            <td class="product-stock low-stock">Low Stock (3)</td>
+                            <td>
+                                <div class="product-actions">
+                                    <button class="action-btn edit-btn">Edit</button>
+                                    <button class="action-btn delete-btn">Delete</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><img src="https://via.placeholder.com/50" alt="Smart Watch" class="product-image"></td>
+                            <td>
+                                <div class="product-name">Smart Watch Series 5</div>
+                                <div class="product-category">Electronics</div>
+                            </td>
+                            <td>Electronics</td>
+                            <td class="product-price">$299.99</td>
+                            <td class="product-stock in-stock">In Stock (18)</td>
+                            <td>
+                                <div class="product-actions">
+                                    <button class="action-btn edit-btn">Edit</button>
+                                    <button class="action-btn delete-btn">Delete</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><img src="https://via.placeholder.com/50" alt="Bluetooth Speaker" class="product-image"></td>
+                            <td>
+                                <div class="product-name">Bluetooth Speaker</div>
+                                <div class="product-category">Electronics</div>
+                            </td>
+                            <td>Electronics</td>
+                            <td class="product-price">$79.99</td>
+                            <td class="product-stock out-of-stock">Out of Stock</td>
+                            <td>
+                                <div class="product-actions">
+                                    <button class="action-btn edit-btn">Edit</button>
+                                    <button class="action-btn delete-btn">Delete</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><img src="https://via.placeholder.com/50" alt="Coffee Maker" class="product-image"></td>
+                            <td>
+                                <div class="product-name">Coffee Maker Pro</div>
+                                <div class="product-category">Home & Kitchen</div>
+                            </td>
+                            <td>Home & Kitchen</td>
+                            <td class="product-price">$129.99</td>
+                            <td class="product-stock in-stock">In Stock (9)</td>
+                            <td>
+                                <div class="product-actions">
+                                    <button class="action-btn edit-btn">Edit</button>
+                                    <button class="action-btn delete-btn">Delete</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><img src="https://via.placeholder.com/50" alt="Wireless Earbuds" class="product-image"></td>
+                            <td>
+                                <div class="product-name">Wireless Earbuds</div>
+                                <div class="product-category">Electronics</div>
+                            </td>
+                            <td>Electronics</td>
+                            <td class="product-price">$89.99</td>
+                            <td class="product-stock in-stock">In Stock (15)</td>
+                            <td>
+                                <div class="product-actions">
+                                    <button class="action-btn edit-btn">Edit</button>
+                                    <button class="action-btn delete-btn">Delete</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><img src="https://via.placeholder.com/50" alt="Gaming Mouse" class="product-image"></td>
+                            <td>
+                                <div class="product-name">Gaming Mouse RGB</div>
+                                <div class="product-category">Electronics</div>
+                            </td>
+                            <td>Electronics</td>
+                            <td class="product-price">$59.99</td>
+                            <td class="product-stock low-stock">Low Stock (2)</td>
+                            <td>
+                                <div class="product-actions">
+                                    <button class="action-btn edit-btn">Edit</button>
+                                    <button class="action-btn delete-btn">Delete</button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="pagination">
+                <div class="page-info">
+                    Showing 1-8 of 24 products
                 </div>
-                
-                <div class="chart-row">
-                    <div class="chart-container">
-                        <h2>Sales This Week</h2>
-                        <canvas id="salesChart"></canvas>
-                    </div>
-                    
-                    <div class="chart-container">
-                        <h2>Payment Methods</h2>
-                        <canvas id="paymentChart"></canvas>
-                    </div>
+                <div class="page-controls">
+                    <button class="page-btn"><i class="fas fa-chevron-left"></i></button>
+                    <button class="page-btn active">1</button>
+                    <button class="page-btn">2</button>
+                    <button class="page-btn">3</button>
+                    <button class="page-btn"><i class="fas fa-chevron-right"></i></button>
                 </div>
-                
-                <div class="chart-row">
-                    <div class="chart-container">
-                        <h2>Top Selling Products</h2>
-                        <canvas id="productsChart"></canvas>
-                    </div>
-                    
-                    <div class="recent-transactions">
-                        <h2>Recent Transactions</h2>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Time</th>
-                                    <th>Amount</th>
-                                    <th>Status</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>#10045</td>
-                                    <td>10:25 AM</td>
-                                    <td>$45.20</td>
-                                    <td><span class="status completed">Completed</span></td>
-                                </tr>
-                                <tr>
-                                    <td>#10044</td>
-                                    <td>10:18 AM</td>
-                                    <td>$112.75</td>
-                                    <td><span class="status completed">Completed</span></td>
-                                </tr>
-                                <tr>
-                                    <td>#10043</td>
-                                    <td>9:52 AM</td>
-                                    <td>$28.50</td>
-                                    <td><span class="status completed">Completed</span></td>
-                                </tr>
-                                <tr>
-                                    <td>#10042</td>
-                                    <td>9:30 AM</td>
-                                    <td>$76.30</td>
-                                    <td><span class="status pending">Pending Sync</span></td>
-                                </tr>
-                                <tr>
-                                    <td>#10041</td>
-                                    <td>9:15 AM</td>
-                                    <td>$64.20</td>
-                                    <td><span class="status completed">Completed</span></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                
-                <div class="sync-status offline">
-                    <i class="fas fa-plug"></i>
-                    <span>Offline Mode - 5 transactions pending sync</span>
-                    <button style="margin-left: auto; padding: 5px 10px; background: var(--primary-color); color: white; border: none; border-radius: 3px;">Sync Now</button>
-                </div>
-            </section>
+            </div>
         </main>
     </div>
 
-    <script src="renderer.js">
-
-    </script>
+    <script src="renderer.js"></script>
 </body>
-
 </html>

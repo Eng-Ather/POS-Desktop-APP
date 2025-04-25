@@ -3,7 +3,7 @@ import { usersCollection } from "./database/connect.js";
 import path, { dirname } from "path";
 import { fileURLToPath } from "url";
 
-// signup user API 
+// signup user API
 ipcMain.on("signup-user", async (event, data) => {
   const existing = await usersCollection.findOne({ email: data.email });
   if (existing) {
@@ -14,13 +14,20 @@ ipcMain.on("signup-user", async (event, data) => {
   }
 });
 
-// signin user API 
+// signin user API
 ipcMain.on("signin-user", async (event, data) => {
   const user = await usersCollection.findOne({ email: data.email });
   if (!user) {
-    event.reply("signin-response", { success: false, msg: "Unauthorized exists" });
+    event.reply("signin-response", {
+      success: false,
+      msg: "Unauthorized exists",
+    });
   } else {
-    event.reply("signin-response", { success: true, msg: "Signin successfull", data: user });
+    event.reply("signin-response", {
+      success: true,
+      msg: "Signin successfull",
+      data: user,
+    });
   }
 });
 
@@ -63,22 +70,23 @@ function createAdminDashboardWindow() {
   const win = new BrowserWindow({
     width: 800,
     height: 600,
-    fullscreenable: true
+    fullscreenable: true,
   });
-  if (isDev) win.webContents.openDevTools()
+  if (isDev) win.webContents.openDevTools();
   win.loadFile("./src/screens/dashboard/adminDashboard/index.html");
-};
+}
 
 function createproduct() {
   const win = new BrowserWindow({
     width: 800,
     height: 600,
-    fullscreenable: true
+    fullscreenable: true,
   });
-  if (isDev) win.webContents.openDevTools()
-  win.loadFile("./src/screens/dashboard/adminDashboard/adminScreens/products/index.html");
-};
-
+  if (isDev) win.webContents.openDevTools();
+  win.loadFile(
+    "./src/screens/dashboard/adminDashboard/adminScreens/products/index.html"
+  );
+}
 
 function createreport() {
   const win = new BrowserWindow({
@@ -91,20 +99,35 @@ function createreport() {
       contextIsolation: true,
     },
   });
-  if (isDev) win.webContents.openDevTools()
-  win.loadFile("./src/screens/dashboard/adminDashboard/adminScreens/reports/index.html");
-};
-
+  if (isDev) win.webContents.openDevTools();
+  win.loadFile(
+    "./src/screens/dashboard/adminDashboard/adminScreens/reports/index.html"
+  );
+}
 
 function createsales() {
   const win = new BrowserWindow({
     width: 800,
     height: 600,
-    fullscreenable: true
+    fullscreenable: true,
   });
-  if (isDev) win.webContents.openDevTools()
-  win.loadFile("./src/screens/dashboard/adminDashboard/adminScreens/sales/index.html");
-};
+  if (isDev) win.webContents.openDevTools();
+  win.loadFile(
+    "./src/screens/dashboard/adminDashboard/adminScreens/sales/index.html"
+  );
+}
+
+function createSettings() {
+  const win = new BrowserWindow({
+    width: 800,
+    height: 600,
+    fullscreenable: true,
+  });
+  if (isDev) win.webContents.openDevTools();
+  win.loadFile(
+    "./src/screens/dashboard/adminDashboard/adminScreens/settings/index.html"
+  );
+}
 
 app.whenReady().then(() => {
   createMainWindow();
