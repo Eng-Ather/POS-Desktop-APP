@@ -3,6 +3,7 @@ import { usersCollection } from "./database/connect.js";
 import path, { dirname } from "path";
 import { fileURLToPath } from "url";
 
+// signup user API 
 ipcMain.on("signup-user", async (event, data) => {
   const existing = await usersCollection.findOne({ email: data.email });
   if (existing) {
@@ -10,6 +11,16 @@ ipcMain.on("signup-user", async (event, data) => {
   } else {
     await usersCollection.insertOne(data);
     event.reply("signup-response", { success: true, msg: "User created" });
+  }
+});
+
+// signin user API 
+ipcMain.on("signin-user", async (event, data) => {
+  const user = await usersCollection.findOne({ email: data.email });
+  if (!user) {
+    event.reply("signin-response", { success: false, msg: "Unauthorized exists" });
+  } else {
+    event.reply("signin-response", { success: true, msg: "Signin successfull", data: user });
   }
 });
 
