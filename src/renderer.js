@@ -17,6 +17,7 @@ window.electronAPI.receiveSigninResponse((res) => {
   if (res.success && res.data.role == "admin") {
     console.log(res);
     window.location.href = "./screens/dashboard/adminDashboard/index.html";
+  } else {
+    window.location.href = "./screens/salesmanDashboard/index.html";
   }
 });
-
