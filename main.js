@@ -31,6 +31,11 @@ ipcMain.on("signin-user", async (event, data) => {
   }
 });
 
+// signout user API 
+ipcMain.on("signout-user", async (event) => {
+  event.reply("signout-response", { success: true, msg: "Signout Successfull" });
+});
+
 const isDev = process.env.NODE_ENV !== "development";
 
 const __filename = fileURLToPath(import.meta.url);
