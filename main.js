@@ -1,7 +1,8 @@
 import { app, BrowserWindow, ipcMain } from "electron";
-import { usersCollection } from "./database/connect.js";
+import { productsCollection, usersCollection } from "./database/connect.js";
 import path, { dirname } from "path";
 import { fileURLToPath } from "url";
+import fs from "fs";
 
 // signup user API
 ipcMain.on("signup-user", async (event, data) => {
@@ -29,6 +30,45 @@ ipcMain.on("signin-user", async (event, data) => {
       data: user,
     });
   }
+});
+
+// signout user API
+ipcMain.on("signout-user", async (event) => {
+  event.reply("signout-response", {
+    success: true,
+    msg: "Signout Successfull",
+  });
+});
+
+// Add product
+ipcMain.on("add-product", async (event, data) => {
+  const { imageInput } = data;
+
+  const destFolder = path.join(__dirname, "uploads", "products");
+  const fileName = path.basename(imageInput);
+  const destPath = path.join(destFolder, fileName);
+
+  if (!fs.existsSync(destFolder)) fs.mkdirSync(destFolder, { recursive: true });
+
+  fs.copyFileSync(filePath, destPath);
+
+  // Save to DB
+  const imagePathForDB = `uploads/products/${fileName}`;
+  const product = {
+    name,
+    imageInput: imagePathForDB,
+    category,
+    stockKG,
+    purchasePrice,
+    sellingPrice,
+    addedOn,
+    unit,
+    barcode,
+  };
+
+  // Insert into MongoDB
+  await productsCollection.insertOne(product);
+  event.reply("add-product-response", { success: true, msg: "Product added!" });
 });
 
 const isDev = process.env.NODE_ENV !== "development";
@@ -81,6 +121,11 @@ function createproduct() {
     width: 800,
     height: 600,
     fullscreenable: true,
+    webPreferences: {
+      preload: path.join(__dirname, "preload.js"),
+      nodeIntegration: false,
+      contextIsolation: true,
+    },
   });
   if (isDev) win.webContents.openDevTools();
   win.loadFile(

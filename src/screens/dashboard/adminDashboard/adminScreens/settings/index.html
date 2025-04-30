@@ -3,125 +3,1132 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>POS Admin - Settings</title>
+    <title>Settings - POS Admin</title>
     <link rel="stylesheet" href="style.css" />
+    <!-- Font Awesome is included in your app already -->
   </head>
   <body>
-    <div class="container">
-      <!-- Sidebar -->
-      <div class="sidebar">
-        <div class="logo">POS Admin</div>
-        <ul class="nav-menu">
-          <li class="nav-item">Product Management</li>
-          <li class="nav-item">Reports</li>
-          <li class="nav-item">Sales</li>
-          <li class="nav-item active">Settings</li>
-        </ul>
-      </div>
+    <div class="admin-container">
+      <aside class="sidebar">
+        <h2 class="primaryColor">
+          <i class="fas fa-cash-register"></i> POS Admin
+        </h2>
+        <nav>
+          <ul>
+            <li><a href="../../index.html">Dashboard</a></li>
+            <li><a href="../products/index.html">Products</a></li>
+            <li><a href="../reports/index.html">Reports</a></li>
+            <li><a href="../sales/index.html">Sales</a></li>
+            <li class="active"><a href="./index.html">Settings</a></li>
+          </ul>
+        </nav>
+      </aside>
 
-      <!-- Main Content -->
-      <div class="main-content">
-        <h1 class="page-title">Settings</h1>
+      <main class="content">
+        <header class="topbar">
+          <div class="search">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="Search settings..." />
+          </div>
+          <div class="user-profile">
+            <span>Admin User</span>
+            <div class="avatar">AU</div>
+          </div>
+        </header>
 
-        <!-- General Settings -->
-        <div class="settings-section">
-          <h2 class="section-title">General Settings</h2>
-
-          <div class="form-group">
-            <label for="store-name">Store Name</label>
-            <input type="text" id="store-name" value="My POS Store" />
+        <section id="settings" class="settings-section">
+          <div class="page-header">
+            <h1>System Settings</h1>
+            <div class="header-actions">
+              <button class="reset-btn">
+                <i class="fas fa-undo"></i> Reset All
+              </button>
+              <button class="save-btn">
+                <i class="fas fa-save"></i> Save Changes
+              </button>
+            </div>
           </div>
 
-          <div class="form-group">
-            <label for="currency">Currency</label>
-            <select id="currency">
-              <option value="USD">US Dollar ($)</option>
-              <option value="EUR">Euro (€)</option>
-              <option value="GBP">British Pound (£)</option>
-              <option value="PKR">Pakistani Rupee (₨)</option>
-            </select>
+          <!-- Settings Navigation -->
+          <div class="settings-container">
+            <div class="settings-nav">
+              <div class="nav-group">
+                <h3>General</h3>
+                <ul>
+                  <li class="active">
+                    <a href="#store-settings"
+                      ><i class="fas fa-store"></i> Store Information</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#user-settings"
+                      ><i class="fas fa-user-circle"></i> User Profile</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#notification-settings"
+                      ><i class="fas fa-bell"></i> Notifications</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#appearance-settings"
+                      ><i class="fas fa-palette"></i> Appearance</a
+                    >
+                  </li>
+                </ul>
+              </div>
+              <div class="nav-group">
+                <h3>POS Configuration</h3>
+                <ul>
+                  <li>
+                    <a href="#receipt-settings"
+                      ><i class="fas fa-receipt"></i> Receipt Settings</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#payment-settings"
+                      ><i class="fas fa-credit-card"></i> Payment Methods</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#tax-settings"
+                      ><i class="fas fa-percentage"></i> Tax Settings</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#discount-settings"
+                      ><i class="fas fa-tags"></i> Discounts</a
+                    >
+                  </li>
+                </ul>
+              </div>
+              <div class="nav-group">
+                <h3>Inventory</h3>
+                <ul>
+                  <li>
+                    <a href="#inventory-settings"
+                      ><i class="fas fa-boxes"></i> Inventory Settings</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#supplier-settings"
+                      ><i class="fas fa-truck"></i> Suppliers</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#category-settings"
+                      ><i class="fas fa-folder"></i> Categories</a
+                    >
+                  </li>
+                </ul>
+              </div>
+              <div class="nav-group">
+                <h3>Team</h3>
+                <ul>
+                  <li>
+                    <a href="#employee-settings"
+                      ><i class="fas fa-users"></i> Employees</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#role-settings"
+                      ><i class="fas fa-user-tag"></i> Roles & Permissions</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#commission-settings"
+                      ><i class="fas fa-percentage"></i> Commission</a
+                    >
+                  </li>
+                </ul>
+              </div>
+              <div class="nav-group">
+                <h3>System</h3>
+                <ul>
+                  <li>
+                    <a href="#integration-settings"
+                      ><i class="fas fa-plug"></i> Integrations</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#backup-settings"
+                      ><i class="fas fa-database"></i> Backup & Restore</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#advanced-settings"
+                      ><i class="fas fa-sliders-h"></i> Advanced</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="settings-content">
+              <!-- Store Information Settings -->
+              <div id="store-settings" class="settings-panel active">
+                <div class="panel-header">
+                  <h2><i class="fas fa-store"></i> Store Information</h2>
+                  <p>Manage your store details and business information</p>
+                </div>
+
+                <div class="settings-form">
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label for="store-name">Store Name</label>
+                      <input
+                        type="text"
+                        id="store-name"
+                        value="My POS Store"
+                        class="form-control"
+                      />
+                    </div>
+                    <div class="form-group">
+                      <label for="legal-name">Legal Business Name</label>
+                      <input
+                        type="text"
+                        id="legal-name"
+                        value="My Business LLC"
+                        class="form-control"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label for="store-email">Email Address</label>
+                      <input
+                        type="email"
+                        id="store-email"
+                        value="contact@myposstore.com"
+                        class="form-control"
+                      />
+                    </div>
+                    <div class="form-group">
+                      <label for="store-phone">Phone Number</label>
+                      <input
+                        type="tel"
+                        id="store-phone"
+                        value="(555) 123-4567"
+                        class="form-control"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="form-group full-width">
+                    <label for="store-address">Address</label>
+                    <input
+                      type="text"
+                      id="store-address"
+                      value="123 Main Street"
+                      class="form-control"
+                    />
+                  </div>
+
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label for="store-city">City</label>
+                      <input
+                        type="text"
+                        id="store-city"
+                        value="Anytown"
+                        class="form-control"
+                      />
+                    </div>
+                    <div class="form-group">
+                      <label for="store-state">State/Province</label>
+                      <input
+                        type="text"
+                        id="store-state"
+                        value="CA"
+                        class="form-control"
+                      />
+                    </div>
+                    <div class="form-group">
+                      <label for="store-zip">ZIP/Postal Code</label>
+                      <input
+                        type="text"
+                        id="store-zip"
+                        value="12345"
+                        class="form-control"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label for="store-country">Country</label>
+                      <select id="store-country" class="form-control">
+                        <option value="US" selected>United States</option>
+                        <option value="CA">Canada</option>
+                        <option value="UK">United Kingdom</option>
+                        <option value="AU">Australia</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="store-currency">Currency</label>
+                      <select id="store-currency" class="form-control">
+                        <option value="USD" selected>USD ($)</option>
+                        <option value="CAD">CAD (C$)</option>
+                        <option value="GBP">GBP (£)</option>
+                        <option value="EUR">EUR (€)</option>
+                        <option value="AUD">AUD (A$)</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label for="store-timezone">Timezone</label>
+                      <select id="store-timezone" class="form-control">
+                        <option value="America/New_York" selected>
+                          Eastern Time (ET)
+                        </option>
+                        <option value="America/Chicago">
+                          Central Time (CT)
+                        </option>
+                        <option value="America/Denver">
+                          Mountain Time (MT)
+                        </option>
+                        <option value="America/Los_Angeles">
+                          Pacific Time (PT)
+                        </option>
+                        <option value="America/Anchorage">
+                          Alaska Time (AKT)
+                        </option>
+                        <option value="Pacific/Honolulu">
+                          Hawaii Time (HT)
+                        </option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="date-format">Date Format</label>
+                      <select id="date-format" class="form-control">
+                        <option value="MM/DD/YYYY" selected>MM/DD/YYYY</option>
+                        <option value="DD/MM/YYYY">DD/MM/YYYY</option>
+                        <option value="YYYY-MM-DD">YYYY-MM-DD</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="form-group full-width">
+                    <label for="store-logo">Store Logo</label>
+                    <div class="file-upload">
+                      <div class="logo-preview">
+                        <img
+                          src="https://via.placeholder.com/150"
+                          alt="Store Logo"
+                        />
+                      </div>
+                      <div class="upload-controls">
+                        <button class="upload-btn">
+                          <i class="fas fa-upload"></i> Upload New Logo
+                        </button>
+                        <button class="remove-btn">
+                          <i class="fas fa-trash"></i> Remove
+                        </button>
+                        <p class="upload-info">
+                          Recommended size: 200x200px. Max file size: 2MB.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="form-group full-width">
+                    <label for="business-hours">Business Hours</label>
+                    <div class="business-hours">
+                      <div class="day-row">
+                        <div class="day-name">Monday</div>
+                        <div class="day-hours">
+                          <div class="hours-group">
+                            <select class="form-control time-select">
+                              <option value="09:00" selected>9:00 AM</option>
+                              <option value="08:00">8:00 AM</option>
+                              <option value="10:00">10:00 AM</option>
+                            </select>
+                            <span>to</span>
+                            <select class="form-control time-select">
+                              <option value="17:00" selected>5:00 PM</option>
+                              <option value="16:00">4:00 PM</option>
+                              <option value="18:00">6:00 PM</option>
+                            </select>
+                          </div>
+                          <div class="day-closed">
+                            <label class="checkbox-container">
+                              <input type="checkbox" />
+                              <span class="checkmark"></span>
+                              Closed
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="day-row">
+                        <div class="day-name">Tuesday</div>
+                        <div class="day-hours">
+                          <div class="hours-group">
+                            <select class="form-control time-select">
+                              <option value="09:00" selected>9:00 AM</option>
+                              <option value="08:00">8:00 AM</option>
+                              <option value="10:00">10:00 AM</option>
+                            </select>
+                            <span>to</span>
+                            <select class="form-control time-select">
+                              <option value="17:00" selected>5:00 PM</option>
+                              <option value="16:00">4:00 PM</option>
+                              <option value="18:00">6:00 PM</option>
+                            </select>
+                          </div>
+                          <div class="day-closed">
+                            <label class="checkbox-container">
+                              <input type="checkbox" />
+                              <span class="checkmark"></span>
+                              Closed
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="day-row">
+                        <div class="day-name">Wednesday</div>
+                        <div class="day-hours">
+                          <div class="hours-group">
+                            <select class="form-control time-select">
+                              <option value="09:00" selected>9:00 AM</option>
+                              <option value="08:00">8:00 AM</option>
+                              <option value="10:00">10:00 AM</option>
+                            </select>
+                            <span>to</span>
+                            <select class="form-control time-select">
+                              <option value="17:00" selected>5:00 PM</option>
+                              <option value="16:00">4:00 PM</option>
+                              <option value="18:00">6:00 PM</option>
+                            </select>
+                          </div>
+                          <div class="day-closed">
+                            <label class="checkbox-container">
+                              <input type="checkbox" />
+                              <span class="checkmark"></span>
+                              Closed
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="day-row">
+                        <div class="day-name">Thursday</div>
+                        <div class="day-hours">
+                          <div class="hours-group">
+                            <select class="form-control time-select">
+                              <option value="09:00" selected>9:00 AM</option>
+                              <option value="08:00">8:00 AM</option>
+                              <option value="10:00">10:00 AM</option>
+                            </select>
+                            <span>to</span>
+                            <select class="form-control time-select">
+                              <option value="17:00" selected>5:00 PM</option>
+                              <option value="16:00">4:00 PM</option>
+                              <option value="18:00">6:00 PM</option>
+                            </select>
+                          </div>
+                          <div class="day-closed">
+                            <label class="checkbox-container">
+                              <input type="checkbox" />
+                              <span class="checkmark"></span>
+                              Closed
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="day-row">
+                        <div class="day-name">Friday</div>
+                        <div class="day-hours">
+                          <div class="hours-group">
+                            <select class="form-control time-select">
+                              <option value="09:00" selected>9:00 AM</option>
+                              <option value="08:00">8:00 AM</option>
+                              <option value="10:00">10:00 AM</option>
+                            </select>
+                            <span>to</span>
+                            <select class="form-control time-select">
+                              <option value="17:00" selected>5:00 PM</option>
+                              <option value="16:00">4:00 PM</option>
+                              <option value="18:00">6:00 PM</option>
+                            </select>
+                          </div>
+                          <div class="day-closed">
+                            <label class="checkbox-container">
+                              <input type="checkbox" />
+                              <span class="checkmark"></span>
+                              Closed
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="day-row">
+                        <div class="day-name">Saturday</div>
+                        <div class="day-hours">
+                          <div class="hours-group">
+                            <select class="form-control time-select">
+                              <option value="10:00" selected>10:00 AM</option>
+                              <option value="09:00">9:00 AM</option>
+                              <option value="11:00">11:00 AM</option>
+                            </select>
+                            <span>to</span>
+                            <select class="form-control time-select">
+                              <option value="15:00" selected>3:00 PM</option>
+                              <option value="14:00">2:00 PM</option>
+                              <option value="16:00">4:00 PM</option>
+                            </select>
+                          </div>
+                          <div class="day-closed">
+                            <label class="checkbox-container">
+                              <input type="checkbox" />
+                              <span class="checkmark"></span>
+                              Closed
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="day-row">
+                        <div class="day-name">Sunday</div>
+                        <div class="day-hours">
+                          <div class="hours-group">
+                            <select class="form-control time-select" disabled>
+                              <option value="closed">Closed</option>
+                            </select>
+                            <span>to</span>
+                            <select class="form-control time-select" disabled>
+                              <option value="closed">Closed</option>
+                            </select>
+                          </div>
+                          <div class="day-closed">
+                            <label class="checkbox-container">
+                              <input type="checkbox" checked />
+                              <span class="checkmark"></span>
+                              Closed
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="form-actions">
+                    <button class="cancel-btn">Cancel</button>
+                    <button class="save-btn">Save Changes</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Payment Methods Settings -->
+              <div id="payment-settings" class="settings-panel">
+                <div class="panel-header">
+                  <h2><i class="fas fa-credit-card"></i> Payment Methods</h2>
+                  <p>
+                    Configure accepted payment methods and processing options
+                  </p>
+                </div>
+
+                <div class="settings-form">
+                  <div class="payment-methods">
+                    <div class="payment-method-card">
+                      <div class="payment-method-header">
+                        <div class="payment-method-icon">
+                          <i class="fas fa-credit-card"></i>
+                        </div>
+                        <div class="payment-method-info">
+                          <h3>Credit/Debit Cards</h3>
+                          <span class="status active">Active</span>
+                        </div>
+                        <div class="payment-method-toggle">
+                          <label class="switch">
+                            <input type="checkbox" checked />
+                            <span class="slider round"></span>
+                          </label>
+                        </div>
+                      </div>
+                      <div class="payment-method-body">
+                        <div class="accepted-cards">
+                          <div class="card-item">
+                            <label class="checkbox-container">
+                              <input type="checkbox" checked />
+                              <span class="checkmark"></span>
+                              Visa
+                            </label>
+                          </div>
+                          <div class="card-item">
+                            <label class="checkbox-container">
+                              <input type="checkbox" checked />
+                              <span class="checkmark"></span>
+                              Mastercard
+                            </label>
+                          </div>
+                          <div class="card-item">
+                            <label class="checkbox-container">
+                              <input type="checkbox" checked />
+                              <span class="checkmark"></span>
+                              American Express
+                            </label>
+                          </div>
+                          <div class="card-item">
+                            <label class="checkbox-container">
+                              <input type="checkbox" checked />
+                              <span class="checkmark"></span>
+                              Discover
+                            </label>
+                          </div>
+                        </div>
+                        <div class="form-row">
+                          <div class="form-group">
+                            <label for="card-processor"
+                              >Payment Processor</label
+                            >
+                            <select id="card-processor" class="form-control">
+                              <option value="stripe" selected>Stripe</option>
+                              <option value="square">Square</option>
+                              <option value="paypal">PayPal</option>
+                              <option value="authorize">Authorize.net</option>
+                            </select>
+                          </div>
+                          <div class="form-group">
+                            <label for="card-fee">Processing Fee (%)</label>
+                            <input
+                              type="text"
+                              id="card-fee"
+                              value="2.9"
+                              class="form-control"
+                            />
+                          </div>
+                        </div>
+                        <button class="configure-btn">
+                          Configure Processor
+                        </button>
+                      </div>
+                    </div>
+
+                    <div class="payment-method-card">
+                      <div class="payment-method-header">
+                        <div class="payment-method-icon">
+                          <i class="fas fa-money-bill-wave"></i>
+                        </div>
+                        <div class="payment-method-info">
+                          <h3>Cash</h3>
+                          <span class="status active">Active</span>
+                        </div>
+                        <div class="payment-method-toggle">
+                          <label class="switch">
+                            <input type="checkbox" checked />
+                            <span class="slider round"></span>
+                          </label>
+                        </div>
+                      </div>
+                      <div class="payment-method-body">
+                        <div class="form-row">
+                          <div class="form-group">
+                            <label for="cash-drawer">Cash Drawer</label>
+                            <select id="cash-drawer" class="form-control">
+                              <option value="auto" selected>
+                                Auto Open on Cash Sale
+                              </option>
+                              <option value="manual">Manual Open Only</option>
+                              <option value="never">
+                                Never Open Automatically
+                              </option>
+                            </select>
+                          </div>
+                          <div class="form-group">
+                            <label for="cash-rounding">Cash Rounding</label>
+                            <select id="cash-rounding" class="form-control">
+                              <option value="none" selected>No Rounding</option>
+                              <option value="nearest5">Nearest $0.05</option>
+                              <option value="nearest10">Nearest $0.10</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="payment-method-card">
+                      <div class="payment-method-header">
+                        <div class="payment-method-icon">
+                          <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <div class="payment-method-info">
+                          <h3>Mobile Payments</h3>
+                          <span class="status active">Active</span>
+                        </div>
+                        <div class="payment-method-toggle">
+                          <label class="switch">
+                            <input type="checkbox" checked />
+                            <span class="slider round"></span>
+                          </label>
+                        </div>
+                      </div>
+                      <div class="payment-method-body">
+                        <div class="accepted-cards">
+                          <div class="card-item">
+                            <label class="checkbox-container">
+                              <input type="checkbox" checked />
+                              <span class="checkmark"></span>
+                              Apple Pay
+                            </label>
+                          </div>
+                          <div class="card-item">
+                            <label class="checkbox-container">
+                              <input type="checkbox" checked />
+                              <span class="checkmark"></span>
+                              Google Pay
+                            </label>
+                          </div>
+                          <div class="card-item">
+                            <label class="checkbox-container">
+                              <input type="checkbox" />
+                              <span class="checkmark"></span>
+                              Samsung Pay
+                            </label>
+                          </div>
+                        </div>
+                        <button class="configure-btn">
+                          Configure Mobile Payments
+                        </button>
+                      </div>
+                    </div>
+
+                    <div class="payment-method-card">
+                      <div class="payment-method-header">
+                        <div class="payment-method-icon">
+                          <i class="fas fa-file-invoice"></i>
+                        </div>
+                        <div class="payment-method-info">
+                          <h3>Invoices</h3>
+                          <span class="status inactive">Inactive</span>
+                        </div>
+                        <div class="payment-method-toggle">
+                          <label class="switch">
+                            <input type="checkbox" />
+                            <span class="slider round"></span>
+                          </label>
+                        </div>
+                      </div>
+                      <div class="payment-method-body">
+                        <p class="inactive-message">
+                          Enable invoices to configure settings.
+                        </p>
+                      </div>
+                    </div>
+
+                    <div class="payment-method-card">
+                      <div class="payment-method-header">
+                        <div class="payment-method-icon">
+                          <i class="fas fa-gift"></i>
+                        </div>
+                        <div class="payment-method-info">
+                          <h3>Gift Cards</h3>
+                          <span class="status inactive">Inactive</span>
+                        </div>
+                        <div class="payment-method-toggle">
+                          <label class="switch">
+                            <input type="checkbox" />
+                            <span class="slider round"></span>
+                          </label>
+                        </div>
+                      </div>
+                      <div class="payment-method-body">
+                        <p class="inactive-message">
+                          Enable gift cards to configure settings.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="add-payment-method">
+                    <button class="add-method-btn">
+                      <i class="fas fa-plus"></i> Add Payment Method
+                    </button>
+                  </div>
+
+                  <div class="form-actions">
+                    <button class="cancel-btn">Cancel</button>
+                    <button class="save-btn">Save Changes</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Tax Settings -->
+              <div id="tax-settings" class="settings-panel">
+                <div class="panel-header">
+                  <h2><i class="fas fa-percentage"></i> Tax Settings</h2>
+                  <p>Configure tax rates and tax calculation methods</p>
+                </div>
+
+                <div class="settings-form">
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label for="tax-calculation">Tax Calculation</label>
+                      <select id="tax-calculation" class="form-control">
+                        <option value="inclusive">
+                          Tax Inclusive (Prices include tax)
+                        </option>
+                        <option value="exclusive" selected>
+                          Tax Exclusive (Tax added at checkout)
+                        </option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="tax-rounding">Tax Rounding</label>
+                      <select id="tax-rounding" class="form-control">
+                        <option value="item" selected>Per Item</option>
+                        <option value="line">Per Line</option>
+                        <option value="total">On Total Only</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="form-group full-width">
+                    <label>Tax Rates</label>
+                    <div class="tax-rates-table">
+                      <table class="data-table">
+                        <thead>
+                          <tr>
+                            <th>Name</th>
+                            <th>Rate (%)</th>
+                            <th>Location</th>
+                            <th>Applied To</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>Standard Sales Tax</td>
+                            <td>8.25%</td>
+                            <td>All Locations</td>
+                            <td>All Products</td>
+                            <td><span class="status active">Active</span></td>
+                            <td>
+                              <div class="actions">
+                                <button class="action-btn" title="Edit">
+                                  <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="action-btn" title="Delete">
+                                  <i class="fas fa-trash"></i>
+                                </button>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Reduced Food Tax</td>
+                            <td>2.5%</td>
+                            <td>All Locations</td>
+                            <td>Food & Beverages</td>
+                            <td><span class="status active">Active</span></td>
+                            <td>
+                              <div class="actions">
+                                <button class="action-btn" title="Edit">
+                                  <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="action-btn" title="Delete">
+                                  <i class="fas fa-trash"></i>
+                                </button>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>City Tax</td>
+                            <td>1.5%</td>
+                            <td>Main Street Store</td>
+                            <td>All Products</td>
+                            <td><span class="status active">Active</span></td>
+                            <td>
+                              <div class="actions">
+                                <button class="action-btn" title="Edit">
+                                  <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="action-btn" title="Delete">
+                                  <i class="fas fa-trash"></i>
+                                </button>
+                              </div>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <button class="add-tax-btn">
+                      <i class="fas fa-plus"></i> Add Tax Rate
+                    </button>
+                  </div>
+
+                  <div class="form-group full-width">
+                    <label>Tax Exemptions</label>
+                    <div class="tax-exemption-options">
+                      <div class="option-item">
+                        <label class="checkbox-container">
+                          <input type="checkbox" checked />
+                          <span class="checkmark"></span>
+                          Allow tax exemptions for customers
+                        </label>
+                      </div>
+                      <div class="option-item">
+                        <label class="checkbox-container">
+                          <input type="checkbox" checked />
+                          <span class="checkmark"></span>
+                          Require exemption certificate
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="form-actions">
+                    <button class="cancel-btn">Cancel</button>
+                    <button class="save-btn">Save Changes</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Receipt Settings -->
+              <div id="receipt-settings" class="settings-panel">
+                <div class="panel-header">
+                  <h2><i class="fas fa-receipt"></i> Receipt Settings</h2>
+                  <p>Customize your receipts and digital receipt options</p>
+                </div>
+
+                <div class="settings-form">
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label for="receipt-size">Receipt Size</label>
+                      <select id="receipt-size" class="form-control">
+                        <option value="80mm" selected>80mm (Standard)</option>
+                        <option value="58mm">58mm (Compact)</option>
+                        <option value="a4">A4 Paper</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="receipt-font">Font Size</label>
+                      <select id="receipt-font" class="form-control">
+                        <option value="small">Small</option>
+                        <option value="medium" selected>Medium</option>
+                        <option value="large">Large</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="form-group full-width">
+                    <label>Receipt Content</label>
+                    <div class="receipt-preview">
+                      <div class="receipt-paper">
+                        <div class="receipt-header">
+                          <div class="receipt-logo">LOGO</div>
+                          <div class="receipt-store-name">My POS Store</div>
+                          <div class="receipt-store-info">
+                            123 Main Street, Anytown, CA 12345
+                          </div>
+                          <div class="receipt-store-contact">
+                            (555) 123-4567
+                          </div>
+                          <div class="receipt-divider">
+                            ------------------------------
+                          </div>
+                          <div class="receipt-title">SALES RECEIPT</div>
+                          <div class="receipt-meta">
+                            <div>Order #: 1001</div>
+                            <div>Date: 04/28/2025 3:53 PM</div>
+                            <div>Cashier: Admin User</div>
+                          </div>
+                          <div class="receipt-divider">
+                            ------------------------------
+                          </div>
+                        </div>
+                        <div class="receipt-items">
+                          <div class="receipt-item">
+                            <div class="item-name">Product Name 1</div>
+                            <div class="item-detail">1 x $10.99</div>
+                            <div class="item-total">$10.99</div>
+                          </div>
+                          <div class="receipt-item">
+                            <div class="item-name">Product Name 2</div>
+                            <div class="item-detail">2 x $5.99</div>
+                            <div class="item-total">$11.98</div>
+                          </div>
+                        </div>
+                        <div class="receipt-summary">
+                          <div class="receipt-divider">
+                            ------------------------------
+                          </div>
+                          <div class="summary-row">
+                            <div class="summary-label">Subtotal</div>
+                            <div class="summary-value">$22.97</div>
+                          </div>
+                          <div class="summary-row">
+                            <div class="summary-label">Tax (8.25%)</div>
+                            <div class="summary-value">$1.90</div>
+                          </div>
+                          <div class="summary-row total">
+                            <div class="summary-label">Total</div>
+                            <div class="summary-value">$24.87</div>
+                          </div>
+                          <div class="summary-row">
+                            <div class="summary-label">Payment (Cash)</div>
+                            <div class="summary-value">$30.00</div>
+                          </div>
+                          <div class="summary-row">
+                            <div class="summary-label">Change</div>
+                            <div class="summary-value">$5.13</div>
+                          </div>
+                        </div>
+                        <div class="receipt-footer">
+                          <div class="receipt-divider">
+                            ------------------------------
+                          </div>
+                          <div class="footer-text">
+                            Thank you for shopping with us!
+                          </div>
+                          <div class="footer-text">
+                            Returns accepted within 30 days with receipt
+                          </div>
+                          <div class="receipt-barcode">
+                            |||||||||||||||||||||||||||
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="form-group full-width">
+                    <label>Receipt Elements</label>
+                    <div class="receipt-elements">
+                      <div class="element-group">
+                        <h4>Header</h4>
+                        <div class="element-item">
+                          <label class="checkbox-container">
+                            <input type="checkbox" checked />
+                            <span class="checkmark"></span>
+                            Store Logo
+                          </label>
+                        </div>
+                        <div class="element-item">
+                          <label class="checkbox-container">
+                            <input type="checkbox" checked />
+                            <span class="checkmark"></span>
+                            Store Name
+                          </label>
+                        </div>
+                        <div class="element-item">
+                          <label class="checkbox-container">
+                            <input type="checkbox" checked />
+                            <span class="checkmark"></span>
+                            Store Address
+                          </label>
+                        </div>
+                        <div class="element-item">
+                          <label class="checkbox-container">
+                            <input type="checkbox" checked />
+                            <span class="checkmark"></span>
+                            Store Contact
+                          </label>
+                        </div>
+                      </div>
+                      <div class="element-group">
+                        <h4>Transaction Info</h4>
+                        <div class="element-item">
+                          <label class="checkbox-container">
+                            <input type="checkbox" checked />
+                            <span class="checkmark"></span>
+                            Receipt Title
+                          </label>
+                        </div>
+                        <div class="element-item">
+                          <label class="checkbox-container">
+                            <input type="checkbox" checked />
+                            <span class="checkmark"></span>
+                            Order Number
+                          </label>
+                        </div>
+                        <div class="element-item">
+                          <label class="checkbox-container">
+                            <input type="checkbox" checked />
+                            <span class="checkmark"></span>
+                            Date & Time
+                          </label>
+                        </div>
+                        <div class="element-item">
+                          <label class="checkbox-container">
+                            <input type="checkbox" checked />
+                            <span class="checkmark"></span>
+                            Cashier Name
+                          </label>
+                        </div>
+                      </div>
+                      <div class="element-group">
+                        <h4>Footer</h4>
+                        <div class="element-item">
+                          <label class="checkbox-container">
+                            <input type="checkbox" checked />
+                            <span class="checkmark"></span>
+                            Thank You Message
+                          </label>
+                        </div>
+                        <div class="element-item">
+                          <label class="checkbox-container">
+                            <input type="checkbox" checked />
+                            <span class="checkmark"></span>
+                            Return Policy
+                          </label>
+                        </div>
+                        <div class="element-item">
+                          <label class="checkbox-container">
+                            <input type="checkbox" checked />
+                            <span class="checkmark"></span>
+                            Barcode
+                          </label>
+                        </div>
+                        <div class="element-item">
+                          <label class="checkbox-container">
+                            <input type="checkbox" />
+                            <span class="checkmark"></span>
+                            Social Media
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="form-group full-width">
+                    <label>Digital Receipts</label>
+                    <div class="digital-receipt-options">
+                      <div class="option-item">
+                        <label class="checkbox-container">
+                          <input type="checkbox" checked />
+                          <span class="checkmark"></span>
+                          Enable email receipts
+                        </label>
+                      </div>
+                      <div class="option-item">
+                        <label class="checkbox-container">
+                          <input type="checkbox" checked />
+                          <span class="checkmark"></span>
+                          Enable SMS receipts
+                        </label>
+                      </div>
+                      <div class="option-item">
+                        <label class="checkbox-container">
+                          <input type="checkbox" />
+                          <span class="checkmark"></span>
+                          Always ask customer for receipt preference
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="form-actions">
+                    <button class="cancel-btn">Cancel</button>
+                    <button class="save-btn">Save Changes</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Other settings panels would go here -->
+            </div>
           </div>
-
-          <div class="form-group">
-            <label for="timezone">Timezone</label>
-            <select id="timezone">
-              <option value="UTC-5">Eastern Time (UTC-5)</option>
-              <option value="UTC-8">Pacific Time (UTC-8)</option>
-              <option value="UTC+0">GMT (UTC+0)</option>
-              <option value="UTC+5" selected>Pakistan Time (UTC+5)</option>
-            </select>
-          </div>
-        </div>
-
-        <!-- Receipt Settings -->
-        <div class="settings-section">
-          <h2 class="section-title">Receipt Settings</h2>
-
-          <div class="form-group">
-            <label>
-              <input type="checkbox" checked />
-              Show store name on receipt
-            </label>
-          </div>
-
-          <div class="form-group">
-            <label>
-              <input type="checkbox" checked />
-              Show item details on receipt
-            </label>
-          </div>
-
-          <div class="form-group">
-            <label>
-              <input type="checkbox" />
-              Print receipt automatically
-            </label>
-          </div>
-
-          <div class="form-group">
-            <label for="receipt-footer">Receipt Footer Message</label>
-            <input
-              type="text"
-              id="receipt-footer"
-              value="Thank you for shopping with us!"
-            />
-          </div>
-        </div>
-
-        <!-- Security Settings -->
-        <div class="settings-section">
-          <h2 class="section-title">Security Settings</h2>
-
-          <div class="form-group">
-            <label>Require password for admin access</label>
-            <label class="toggle-switch">
-              <input type="checkbox" checked />
-              <span class="slider"></span>
-            </label>
-          </div>
-
-          <div class="form-group">
-            <label>Enable auto-logout after inactivity</label>
-            <label class="toggle-switch">
-              <input type="checkbox" />
-              <span class="slider"></span>
-            </label>
-          </div>
-
-          <div class="form-group">
-            <label>Enable two-factor authentication</label>
-            <label class="toggle-switch">
-              <input type="checkbox" />
-              <span class="slider"></span>
-            </label>
-          </div>
-        </div>
-
-        <!-- Save Button -->
-        <button>Save Settings</button>
-      </div>
+        </section>
+      </main>
     </div>
-
-    <script src="renderer.js"></script>
   </body>
 </html>

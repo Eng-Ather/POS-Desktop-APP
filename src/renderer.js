@@ -10,14 +10,14 @@ signinform.addEventListener("submit", async (e) => {
 
   // to emit data to offline database
   window.electronAPI.signinUser(data);
-});
 
-// to receive called APIs response
-window.electronAPI.receiveSigninResponse((res) => {
-  if (res.success && res.data.role == "admin") {
-    console.log(res);
-    window.location.href = "./screens/dashboard/adminDashboard/index.html";
-  } else {
-    window.location.href = "./screens/salesmanDashboard/index.html";
-  }
+  // to receive called APIs response
+  window.electronAPI.receiveSigninResponse((res) => {
+    if (res.success !== false && res.data.role == "admin") {
+      console.log(res);
+      window.location.href = "./screens/dashboard/adminDashboard/index.html";
+    } else if (res.success !== false) {
+      window.location.href = "./screens/salesmanDashboard/index.html";
+    }
+  });
 });
