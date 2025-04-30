@@ -16,7 +16,7 @@
             <li><a href="../products/index.html">Products</a></li>
             <li class="active"><a href="./index.html">Reports</a></li>
             <li><a href="../sales/index.html">Sales</a></li>
-            <li><a href="#">Settings</a></li>
+            <li><a href="../settings/index.html">Settings</a></li>
           </ul>
         </nav>
       </aside>
@@ -58,40 +58,11 @@
             </div>
           </div>
 
-          <!-- Report Navigation -->
-          <div class="report-nav">
-            <button class="report-nav-btn active" data-target="sales-reports">
-              <i class="fas fa-chart-line"></i>
-              <span>Sales</span>
-            </button>
-            <button class="report-nav-btn" data-target="inventory-reports">
-              <i class="fas fa-boxes"></i>
-              <span>Inventory</span>
-            </button>
-            <button class="report-nav-btn" data-target="employee-reports">
-              <i class="fas fa-users"></i>
-              <span>Employees</span>
-            </button>
-            <button class="report-nav-btn" data-target="customer-reports">
-              <i class="fas fa-user-friends"></i>
-              <span>Customers</span>
-            </button>
-            <button class="report-nav-btn" data-target="financial-reports">
-              <i class="fas fa-file-invoice-dollar"></i>
-              <span>Financial</span>
-            </button>
-            <button class="report-nav-btn" data-target="tax-reports">
-              <i class="fas fa-percentage"></i>
-              <span>Tax</span>
-            </button>
-          </div>
+          
 
           <!-- Key Metrics Summary -->
           <div class="metrics-summary">
             <div class="metric-card">
-              <div class="metric-icon">
-                <i class="fas fa-dollar-sign"></i>
-              </div>
               <div class="metric-content">
                 <h3>Total Revenue</h3>
                 <p class="metric-value">$48,295.75</p>
@@ -102,9 +73,6 @@
               </div>
             </div>
             <div class="metric-card">
-              <div class="metric-icon">
-                <i class="fas fa-receipt"></i>
-              </div>
               <div class="metric-content">
                 <h3>Total Orders</h3>
                 <p class="metric-value">842</p>
@@ -115,54 +83,12 @@
               </div>
             </div>
             <div class="metric-card">
-              <div class="metric-icon">
-                <i class="fas fa-percentage"></i>
-              </div>
               <div class="metric-content">
                 <h3>Profit Margin</h3>
                 <p class="metric-value">32.4%</p>
                 <div class="metric-trend positive">
                   <i class="fas fa-arrow-up"></i>
                   <span>2.1% vs last period</span>
-                </div>
-              </div>
-            </div>
-            <div class="metric-card">
-              <div class="metric-icon">
-                <i class="fas fa-exchange-alt"></i>
-              </div>
-              <div class="metric-content">
-                <h3>Refund Rate</h3>
-                <p class="metric-value">2.8%</p>
-                <div class="metric-trend negative">
-                  <i class="fas fa-arrow-up"></i>
-                  <span>0.5% vs last period</span>
-                </div>
-              </div>
-            </div>
-            <div class="metric-card">
-              <div class="metric-icon">
-                <i class="fas fa-user-plus"></i>
-              </div>
-              <div class="metric-content">
-                <h3>New Customers</h3>
-                <p class="metric-value">124</p>
-                <div class="metric-trend positive">
-                  <i class="fas fa-arrow-up"></i>
-                  <span>15.2% vs last period</span>
-                </div>
-              </div>
-            </div>
-            <div class="metric-card">
-              <div class="metric-icon">
-                <i class="fas fa-shopping-basket"></i>
-              </div>
-              <div class="metric-content">
-                <h3>Avg. Order Value</h3>
-                <p class="metric-value">$57.36</p>
-                <div class="metric-trend positive">
-                  <i class="fas fa-arrow-up"></i>
-                  <span>3.8% vs last period</span>
                 </div>
               </div>
             </div>
@@ -306,240 +232,9 @@
               </div>
             </div>
 
-            <!-- Top Products Table -->
-            <div class="report-row">
-              <div class="report-card full-width">
-                <div class="card-header">
-                  <h3>Top Selling Products</h3>
-                  <div class="header-actions">
-                    <div class="search-box">
-                      <i class="fas fa-search"></i>
-                      <input type="text" placeholder="Search products..." />
-                    </div>
-                    <button class="more-btn">
-                      <i class="fas fa-ellipsis-v"></i>
-                    </button>
-                  </div>
-                </div>
-                <div class="card-body">
-                  <table class="data-table">
-                    <thead>
-                      <tr>
-                        <th>Product</th>
-                        <th>Category</th>
-                        <th>Units Sold</th>
-                        <th>Revenue</th>
-                        <th>Profit</th>
-                        <th>Profit Margin</th>
-                        <th>Trend</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>
-                          <div class="product-cell">
-                            <div class="product-image">
-                              <img
-                                src="https://via.placeholder.com/40"
-                                alt="Product"
-                              />
-                            </div>
-                            <div class="product-info">
-                              <div class="product-name">Smartphone X Pro</div>
-                              <div class="product-sku">SKU: SP-XP-001</div>
-                            </div>
-                          </div>
-                        </td>
-                        <td>Electronics</td>
-                        <td>124</td>
-                        <td class="amount">$111,599.76</td>
-                        <td class="amount">$33,479.93</td>
-                        <td>30.0%</td>
-                        <td>
-                          <div class="sparkline">
-                            <div class="spark-bar" style="height: 60%"></div>
-                            <div class="spark-bar" style="height: 40%"></div>
-                            <div class="spark-bar" style="height: 80%"></div>
-                            <div class="spark-bar" style="height: 70%"></div>
-                            <div class="spark-bar" style="height: 90%"></div>
-                            <div class="spark-bar" style="height: 85%"></div>
-                            <div
-                              class="spark-bar active"
-                              style="height: 95%"
-                            ></div>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <div class="product-cell">
-                            <div class="product-image">
-                              <img
-                                src="https://via.placeholder.com/40"
-                                alt="Product"
-                              />
-                            </div>
-                            <div class="product-info">
-                              <div class="product-name">
-                                Wireless Headphones
-                              </div>
-                              <div class="product-sku">SKU: WH-PRO-002</div>
-                            </div>
-                          </div>
-                        </td>
-                        <td>Electronics</td>
-                        <td>98</td>
-                        <td class="amount">$14,699.02</td>
-                        <td class="amount">$5,879.61</td>
-                        <td>40.0%</td>
-                        <td>
-                          <div class="sparkline">
-                            <div class="spark-bar" style="height: 50%"></div>
-                            <div class="spark-bar" style="height: 60%"></div>
-                            <div class="spark-bar" style="height: 70%"></div>
-                            <div class="spark-bar" style="height: 65%"></div>
-                            <div class="spark-bar" style="height: 75%"></div>
-                            <div class="spark-bar" style="height: 80%"></div>
-                            <div
-                              class="spark-bar active"
-                              style="height: 85%"
-                            ></div>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <div class="product-cell">
-                            <div class="product-image">
-                              <img
-                                src="https://via.placeholder.com/40"
-                                alt="Product"
-                              />
-                            </div>
-                            <div class="product-info">
-                              <div class="product-name">
-                                Smart Watch Series 5
-                              </div>
-                              <div class="product-sku">SKU: SW-S5-003</div>
-                            </div>
-                          </div>
-                        </td>
-                        <td>Electronics</td>
-                        <td>76</td>
-                        <td class="amount">$22,799.24</td>
-                        <td class="amount">$7,979.73</td>
-                        <td>35.0%</td>
-                        <td>
-                          <div class="sparkline">
-                            <div class="spark-bar" style="height: 40%"></div>
-                            <div class="spark-bar" style="height: 45%"></div>
-                            <div class="spark-bar" style="height: 55%"></div>
-                            <div class="spark-bar" style="height: 60%"></div>
-                            <div class="spark-bar" style="height: 65%"></div>
-                            <div class="spark-bar" style="height: 70%"></div>
-                            <div
-                              class="spark-bar active"
-                              style="height: 75%"
-                            ></div>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <div class="product-cell">
-                            <div class="product-image">
-                              <img
-                                src="https://via.placeholder.com/40"
-                                alt="Product"
-                              />
-                            </div>
-                            <div class="product-info">
-                              <div class="product-name">Coffee Maker Pro</div>
-                              <div class="product-sku">SKU: CM-PRO-004</div>
-                            </div>
-                          </div>
-                        </td>
-                        <td>Home & Kitchen</td>
-                        <td>65</td>
-                        <td class="amount">$8,449.35</td>
-                        <td class="amount">$3,379.74</td>
-                        <td>40.0%</td>
-                        <td>
-                          <div class="sparkline">
-                            <div class="spark-bar" style="height: 30%"></div>
-                            <div class="spark-bar" style="height: 40%"></div>
-                            <div class="spark-bar" style="height: 45%"></div>
-                            <div class="spark-bar" style="height: 50%"></div>
-                            <div class="spark-bar" style="height: 55%"></div>
-                            <div class="spark-bar" style="height: 60%"></div>
-                            <div
-                              class="spark-bar active"
-                              style="height: 65%"
-                            ></div>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <div class="product-cell">
-                            <div class="product-image">
-                              <img
-                                src="https://via.placeholder.com/40"
-                                alt="Product"
-                              />
-                            </div>
-                            <div class="product-info">
-                              <div class="product-name">Bluetooth Speaker</div>
-                              <div class="product-sku">SKU: BS-PRO-005</div>
-                            </div>
-                          </div>
-                        </td>
-                        <td>Electronics</td>
-                        <td>54</td>
-                        <td class="amount">$4,319.46</td>
-                        <td class="amount">$1,727.78</td>
-                        <td>40.0%</td>
-                        <td>
-                          <div class="sparkline">
-                            <div class="spark-bar" style="height: 20%"></div>
-                            <div class="spark-bar" style="height: 30%"></div>
-                            <div class="spark-bar" style="height: 35%"></div>
-                            <div class="spark-bar" style="height: 40%"></div>
-                            <div class="spark-bar" style="height: 45%"></div>
-                            <div class="spark-bar" style="height: 50%"></div>
-                            <div
-                              class="spark-bar active"
-                              style="height: 55%"
-                            ></div>
-                          </div>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-                <div class="card-footer">
-                  <div class="pagination">
-                    <span class="page-info">Showing 1-5 of 50 products</span>
-                    <div class="page-controls">
-                      <button class="page-btn">
-                        <i class="fas fa-chevron-left"></i>
-                      </button>
-                      <button class="page-btn active">1</button>
-                      <button class="page-btn">2</button>
-                      <button class="page-btn">3</button>
-                      <button class="page-btn">...</button>
-                      <button class="page-btn">10</button>
-                      <button class="page-btn">
-                        <i class="fas fa-chevron-right"></i>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
 
             <!-- Hourly Sales and Sales by Location -->
-            <div class="report-row">
+            <!-- <div class="report-row">
               <div class="report-card">
                 <div class="card-header">
                   <h3>Hourly Sales Distribution</h3>
@@ -610,10 +305,10 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
 
           <!-- Inventory Reports Section -->
-          <div id="inventory-reports" class="report-section">
+          <!-- <div id="inventory-reports" class="report-section">
             <div class="section-header">
               <h2><i class="fas fa-boxes"></i> Inventory Reports</h2>
               <div class="section-actions">
@@ -700,7 +395,7 @@
             </div>
 
             <!-- Low Stock Alert -->
-            <div class="report-row">
+            <!-- <div class="report-row">
               <div class="report-card full-width">
                 <div class="card-header">
                   <h3>Low Stock Alert</h3>
@@ -869,7 +564,6 @@
               </div>
             </div>
 
-            <!-- Inventory Movement -->
             <div class="report-row">
               <div class="report-card full-width">
                 <div class="card-header">
@@ -924,30 +618,30 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
 
           <!-- Employee Reports Section -->
-          <div id="employee-reports" class="report-section">
+          <!-- <div id="employee-reports" class="report-section"> -->
             <!-- Employee section content would go here -->
-          </div>
+          <!-- </div> -->
 
           <!-- Customer Reports Section -->
-          <div id="customer-reports" class="report-section">
+          <!-- <div id="customer-reports" class="report-section"> -->
             <!-- Customer section content would go here -->
-          </div>
+          <!-- </div> -->
 
           <!-- Financial Reports Section -->
-          <div id="financial-reports" class="report-section">
+          <!-- <div id="financial-reports" class="report-section"> -->
             <!-- Financial section content would go here -->
-          </div>
+          <!-- </div> -->
 
           <!-- Tax Reports Section -->
-          <div id="tax-reports" class="report-section">
+          <!-- <div id="tax-reports" class="report-section"> -->
             <!-- Tax section content would go here -->
-          </div>
+          <!-- </div> -->
 
           <!-- Scheduled Reports -->
-          <div class="report-row">
+          <!-- <div class="report-row">
             <div class="report-card full-width">
               <div class="card-header">
                 <h3>Scheduled Reports</h3>
@@ -1040,7 +734,7 @@
                 </table>
               </div>
             </div>
-          </div>
+          </div> -->
         </section>
       </main>
     </div>

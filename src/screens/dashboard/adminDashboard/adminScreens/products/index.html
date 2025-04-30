@@ -1,217 +1,271 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Product Management</title>
-    <link rel="stylesheet" href="style.css">
-</head>
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-<body>
+  <body>
     <div class="admin-container">
-        <aside class="sidebar">
-            <h2 class="primaryColor">POS Admin</h2>
-            <nav>
-                <ul>
-                    <li><a href="../../index.html">Dashboard</a></li>
-                    <li class="active"><a href="./index.html">Products</a></li>
-                    <li><a href="../reports/index.html">Reports</a></li>
-                    <li><a href="../sales/index.html">Sales</a></li>
-                    <li><a href="#">Settings</a></li>
-                </ul>
-            </nav>
-        </aside>
+      <aside class="sidebar">
+        <h2 class="primaryColor">POS Admin</h2>
+        <nav>
+          <ul>
+            <li><a href="../../index.html">Dashboard</a></li>
+            <li class="active"><a href="./index.html">Products</a></li>
+            <li><a href="../reports/index.html">Reports</a></li>
+            <li><a href="../sales/index.html">Sales</a></li>
+            <li><a href="../settings/index.html">Settings</a></li>
+          </ul>
+        </nav>
+      </aside>
 
-        <main class="main-content">
-            <div class="page-header">
-                <h1 class="page-title">Product Management</h1>
-                <button class="add-product-btn">
-                    <i class="fas fa-plus"></i> Add Product
+      <main class="main-content">
+        <div class="page-header">
+          <h1 class="page-title">Product Management</h1>
+          <!-- <button id="openModalBtn" class="add-product-btn">Add Product</button> -->
+          <button id="add-product-btn" class="add-product-btn">Add Product</button>
+        </div>
+
+        <div class="search-filter-bar">
+          <div class="search-bar">
+            <input type="text" placeholder="Search products..." />
+          </div>
+          <div class="filter-options">
+            <select class="filter-select">
+              <option value="">All Categories</option>
+              <option value="electronics">Electronics</option>
+              <option value="clothing">Clothing</option>
+              <option value="food">Food & Beverages</option>
+              <option value="home">Home & Kitchen</option>
+              <option value="health">Health & Beauty</option>
+            </select>
+            <select class="filter-select">
+              <option value="">Stock Status</option>
+              <option value="in-stock">In Stock</option>
+              <option value="low-stock">Low Stock</option>
+              <option value="out-of-stock">Out of Stock</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="products-table-container">
+          <table class="products-table">
+            <thead>
+              <tr>
+                <th>Image</th>
+                <th>Product</th>
+                <th>Category</th>
+                <th>Price</th>
+                <th>Stock</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="tableBody">
+              <tr>
+                <td>
+                  <img
+                    src="https://via.placeholder.com/50"
+                    alt="Gaming Mouse"
+                    class="product-image"
+                  />
+                </td>
+                <td>
+                  <div class="product-name">Gaming Mouse RGB</div>
+                  <div class="product-category">Electronics</div>
+                </td>
+                <td>Electronics</td>
+                <td class="product-price">$59.99</td>
+                <td class="product-stock low-stock">Low Stock (2)</td>
+                <td>
+                  <div class="product-actions">
+                    <button class="action-btn edit-btn">Edit</button>
+                    <button class="action-btn delete-btn">Delete</button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Modal Overlay -->
+        <div id="modal-overlay" class="modal-overlay"></div>
+
+        <!-- Add Product Modal -->
+        <div id="add-product-modal" class="modal">
+          <div class="modal-header">
+            <h2><i class="fas fa-plus-circle"></i> Add New Product</h2>
+            <button id="close-modal" class="close-modal">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div id="success-message" class="success-message">
+              <i class="fas fa-check-circle"></i> Product added successfully!
+            </div>
+            <form id="product-form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="product-name">Product Name*</label>
+                  <input
+                    type="text"
+                    id="product-name"
+                    class="form-control"
+                    placeholder="Enter product name"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="product-picture">Product Picture*</label>
+                  <input
+                    type="file"
+                    accept="image/*"
+                    id="product-picture"
+                    class="form-control"
+                    placeholder="Enter product picture"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="product-category">Category*</label>
+                  <select id="product-category" class="form-control" required>
+                    <option value="">Select category</option>
+                    <option value="Basmati">Basmati</option>
+                    <option value="Non-Basmati">Non-Basmati</option>
+                    <option value="Brown Rice">Brown Rice</option>
+                    <option value="Jasmine">Jasmine</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="product-stock">Stock Quantity*</label>
+                  <div class="input-group">
+                    <input
+                      type="number"
+                      id="product-stock"
+                      class="form-control"
+                      placeholder="Enter stock quantity"
+                      min="0"
+                      step="0.01"
+                      required
+                    />
+                    <div class="input-group-append">
+                      <span class="input-group-text">KG</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="product-unit">Unit*</label>
+                  <select id="product-unit" class="form-control" required>
+                    <option value="KG" selected>Kilogram (KG)</option>
+                    <option value="G">Gram (G)</option>
+                    <option value="LB">Pound (LB)</option>
+                    <option value="OZ">Ounce (OZ)</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="purchase-price">Purchase Price*</label>
+                  <div class="input-group">
+                    <input
+                      type="number"
+                      id="purchase-price"
+                      class="form-control"
+                      placeholder="0.00"
+                      min="0"
+                      step="0.01"
+                      required
+                    />
+                    <div class="input-group-append">
+                      <span class="input-group-text">$</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="selling-price">Selling Price*</label>
+                  <div class="input-group">
+                    <input
+                      type="number"
+                      id="selling-price"
+                      class="form-control"
+                      placeholder="0.00"
+                      min="0"
+                      step="0.01"
+                      required
+                    />
+                    <div class="input-group-append">
+                      <span class="input-group-text">$</span>
+                    </div>
+                  </div>
+                  <div class="price-info">
+                    Profit Margin:
+                    <span id="profit-margin" class="profit-margin">0.00%</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="product-barcode">Barcode/SKU</label>
+                  <div class="barcode-group">
+                    <input
+                      type="text"
+                      id="product-barcode"
+                      class="form-control"
+                      placeholder="Enter barcode or SKU"
+                    />
+                    <button
+                      type="button"
+                      id="generate-barcode"
+                      class="generate-barcode"
+                    >
+                      <i class="fas fa-barcode"></i> Generate
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  id="cancel-btn"
+                  class="btn btn-cancel"
+                  onclick="document.getElementById('close-modal').click()"
+                >
+                  Cancel
                 </button>
-            </div>
+                <button type="submit" class="btn btn-primary">
+                  Save Product
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
 
-            <div class="search-filter-bar">
-                <div class="search-bar">
-                    <input type="text" placeholder="Search products...">
-                </div>
-                <div class="filter-options">
-                    <select class="filter-select">
-                        <option value="">All Categories</option>
-                        <option value="electronics">Electronics</option>
-                        <option value="clothing">Clothing</option>
-                        <option value="food">Food & Beverages</option>
-                        <option value="home">Home & Kitchen</option>
-                        <option value="health">Health & Beauty</option>
-                    </select>
-                    <select class="filter-select">
-                        <option value="">Stock Status</option>
-                        <option value="in-stock">In Stock</option>
-                        <option value="low-stock">Low Stock</option>
-                        <option value="out-of-stock">Out of Stock</option>
-                    </select>
-                </div>
-            </div>
-
-            <div class="products-table-container">
-                <table class="products-table">
-                    <thead>
-                        <tr>
-                            <th>Image</th>
-                            <th>Product</th>
-                            <th>Category</th>
-                            <th>Price</th>
-                            <th>Stock</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><img src="https://via.placeholder.com/50" alt="Smartphone" class="product-image"></td>
-                            <td>
-                                <div class="product-name">Smartphone X Pro</div>
-                                <div class="product-category">Electronics</div>
-                            </td>
-                            <td>Electronics</td>
-                            <td class="product-price">$899.99</td>
-                            <td class="product-stock in-stock">In Stock (24)</td>
-                            <td>
-                                <div class="product-actions">
-                                    <button class="action-btn edit-btn">Edit</button>
-                                    <button class="action-btn delete-btn">Delete</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><img src="https://via.placeholder.com/50" alt="Laptop" class="product-image"></td>
-                            <td>
-                                <div class="product-name">Ultrabook Slim 14"</div>
-                                <div class="product-category">Electronics</div>
-                            </td>
-                            <td>Electronics</td>
-                            <td class="product-price">$1299.99</td>
-                            <td class="product-stock in-stock">In Stock (12)</td>
-                            <td>
-                                <div class="product-actions">
-                                    <button class="action-btn edit-btn">Edit</button>
-                                    <button class="action-btn delete-btn">Delete</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><img src="https://via.placeholder.com/50" alt="Headphones" class="product-image"></td>
-                            <td>
-                                <div class="product-name">Wireless Headphones</div>
-                                <div class="product-category">Electronics</div>
-                            </td>
-                            <td>Electronics</td>
-                            <td class="product-price">$149.99</td>
-                            <td class="product-stock low-stock">Low Stock (3)</td>
-                            <td>
-                                <div class="product-actions">
-                                    <button class="action-btn edit-btn">Edit</button>
-                                    <button class="action-btn delete-btn">Delete</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><img src="https://via.placeholder.com/50" alt="Smart Watch" class="product-image"></td>
-                            <td>
-                                <div class="product-name">Smart Watch Series 5</div>
-                                <div class="product-category">Electronics</div>
-                            </td>
-                            <td>Electronics</td>
-                            <td class="product-price">$299.99</td>
-                            <td class="product-stock in-stock">In Stock (18)</td>
-                            <td>
-                                <div class="product-actions">
-                                    <button class="action-btn edit-btn">Edit</button>
-                                    <button class="action-btn delete-btn">Delete</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><img src="https://via.placeholder.com/50" alt="Bluetooth Speaker" class="product-image"></td>
-                            <td>
-                                <div class="product-name">Bluetooth Speaker</div>
-                                <div class="product-category">Electronics</div>
-                            </td>
-                            <td>Electronics</td>
-                            <td class="product-price">$79.99</td>
-                            <td class="product-stock out-of-stock">Out of Stock</td>
-                            <td>
-                                <div class="product-actions">
-                                    <button class="action-btn edit-btn">Edit</button>
-                                    <button class="action-btn delete-btn">Delete</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><img src="https://via.placeholder.com/50" alt="Coffee Maker" class="product-image"></td>
-                            <td>
-                                <div class="product-name">Coffee Maker Pro</div>
-                                <div class="product-category">Home & Kitchen</div>
-                            </td>
-                            <td>Home & Kitchen</td>
-                            <td class="product-price">$129.99</td>
-                            <td class="product-stock in-stock">In Stock (9)</td>
-                            <td>
-                                <div class="product-actions">
-                                    <button class="action-btn edit-btn">Edit</button>
-                                    <button class="action-btn delete-btn">Delete</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><img src="https://via.placeholder.com/50" alt="Wireless Earbuds" class="product-image"></td>
-                            <td>
-                                <div class="product-name">Wireless Earbuds</div>
-                                <div class="product-category">Electronics</div>
-                            </td>
-                            <td>Electronics</td>
-                            <td class="product-price">$89.99</td>
-                            <td class="product-stock in-stock">In Stock (15)</td>
-                            <td>
-                                <div class="product-actions">
-                                    <button class="action-btn edit-btn">Edit</button>
-                                    <button class="action-btn delete-btn">Delete</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><img src="https://via.placeholder.com/50" alt="Gaming Mouse" class="product-image"></td>
-                            <td>
-                                <div class="product-name">Gaming Mouse RGB</div>
-                                <div class="product-category">Electronics</div>
-                            </td>
-                            <td>Electronics</td>
-                            <td class="product-price">$59.99</td>
-                            <td class="product-stock low-stock">Low Stock (2)</td>
-                            <td>
-                                <div class="product-actions">
-                                    <button class="action-btn edit-btn">Edit</button>
-                                    <button class="action-btn delete-btn">Delete</button>
-                                </div>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="pagination">
-                <div class="page-info">
-                    Showing 1-8 of 24 products
-                </div>
-                <div class="page-controls">
-                    <button class="page-btn"><i class="fas fa-chevron-left"></i></button>
-                    <button class="page-btn active">1</button>
-                    <button class="page-btn">2</button>
-                    <button class="page-btn">3</button>
-                    <button class="page-btn"><i class="fas fa-chevron-right"></i></button>
-                </div>
-            </div>
-        </main>
+        <div class="pagination">
+          <div class="page-info">Showing 1-8 of 24 products</div>
+          <div class="page-controls">
+            <button class="page-btn">
+              <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="page-btn active">1</button>
+            <button class="page-btn">2</button>
+            <button class="page-btn">3</button>
+            <button class="page-btn">
+              <i class="fas fa-chevron-right"></i>
+            </button>
+          </div>
+        </div>
+      </main>
     </div>
 
     <script src="renderer.js"></script>
-</body>
+  </body>
 </html>

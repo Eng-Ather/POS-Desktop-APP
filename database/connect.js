@@ -5,3 +5,4 @@ await client.connect();
 
 export const db = client.db('POS');
 export const usersCollection = db.collection('users');
+export const productsCollection = db.collection('products')
