@@ -4,14 +4,14 @@ import path, { dirname } from "path";
 import { fileURLToPath } from "url";
 import fs from "fs";
 
-// signup user API
-ipcMain.on("signup-user", async (event, data) => {
+// add user API
+ipcMain.on("add-user", async (event, data) => {
   const existing = await usersCollection.findOne({ email: data.email });
   if (existing) {
-    event.reply("signup-response", { success: false, msg: "Email exists" });
+    event.reply("add-user-response", { success: false, msg: "Email exists!" });
   } else {
     await usersCollection.insertOne(data);
-    event.reply("signup-response", { success: true, msg: "User created" });
+    event.reply("add-user-response", { success: true, msg: "User created" });
   }
 });
 
@@ -171,6 +171,23 @@ function createSettings() {
   if (isDev) win.webContents.openDevTools();
   win.loadFile(
     "./src/screens/dashboard/adminDashboard/adminScreens/settings/index.html"
+  );
+}
+
+function createUsers() {
+  const win = new BrowserWindow({
+    width: 800,
+    height: 600,
+    fullscreenable: true,
+    webPreferences: {
+      preload: path.join(__dirname, "preload.js"),
+      nodeIntegration: false,
+      contextIsolation: true,
+    },
+  });
+  if (isDev) win.webContents.openDevTools();
+  win.loadFile(
+    "./src/screens/dashboard/adminDashboard/adminScreens/users/index.html"
   );
 }
 
