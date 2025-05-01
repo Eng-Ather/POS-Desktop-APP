@@ -47,7 +47,6 @@ document.addEventListener("DOMContentLoaded", () => {
       // Get form values
       const formData = {
         name: document.getElementById("product-name").value,
-        imageInput: document.getElementById("product-picture").files[0],
         category: document.getElementById("product-category").value,
         stockKG: Number.parseFloat(
           document.getElementById("product-stock").value
@@ -59,12 +58,15 @@ document.addEventListener("DOMContentLoaded", () => {
           document.getElementById("selling-price").value
         ),
         addedOn: new Date(),
-        unit: document.getElementById("product-unit").value,
         barcode: document.getElementById("product-barcode").value,
       };
 
       // Here you would typically send this data to your backend
       console.log("Product data:", formData);
+      window.electronAPI.addProduct(formData);
+      window.electronAPI.receiveproductResponse((res) => {
+        console.log(res);
+      });
 
       // Show success message
       const successMessage = document.getElementById("success-message");
@@ -79,8 +81,6 @@ document.addEventListener("DOMContentLoaded", () => {
         productForm.reset();
       }, 9000);
 
-      // Send file and name to main process
-      window.electronAPI.addProduct(formData);
     });
   }
 
@@ -135,9 +135,20 @@ document.addEventListener("DOMContentLoaded", () => {
     purchasePriceInput.addEventListener("input", updateProfitMargin);
   if (sellingPriceInput)
     sellingPriceInput.addEventListener("input", updateProfitMargin);
+});
 
-  // to receive called APIs response
-  window.electronAPI.receiveproductResponse((res) => {
-    console.log(res);
-  });
+
+window.electronAPI.getProducts().then((products) => {
+  console.log("All products:", products);
+
+  // Show products in DOM
+  // products.forEach((product) => {
+  //   const card = document.createElement("div");
+  //   card.innerHTML = `
+  //     <h3>${product.name}</h3>
+  //     <img src="${product.image}" width="100"/>
+  //   `;
+  //   document.body.appendChild(card);
+  // });
+  
 });

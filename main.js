@@ -2,7 +2,6 @@ import { app, BrowserWindow, ipcMain } from "electron";
 import { productsCollection, usersCollection } from "./database/connect.js";
 import path, { dirname } from "path";
 import { fileURLToPath } from "url";
-import fs from "fs";
 
 // add user API
 ipcMain.on("add-user", async (event, data) => {
@@ -42,33 +41,19 @@ ipcMain.on("signout-user", async (event) => {
 
 // Add product
 ipcMain.on("add-product", async (event, data) => {
-  const { imageInput } = data;
+  await productsCollection.insertOne(data);
+  event.reply("add-product-response", { success: true, msg: "Product Added" });
+});
 
-  const destFolder = path.join(__dirname, "uploads", "products");
-  const fileName = path.basename(imageInput);
-  const destPath = path.join(destFolder, fileName);
-
-  if (!fs.existsSync(destFolder)) fs.mkdirSync(destFolder, { recursive: true });
-
-  fs.copyFileSync(filePath, destPath);
-
-  // Save to DB
-  const imagePathForDB = `uploads/products/${fileName}`;
-  const product = {
-    name,
-    imageInput: imagePathForDB,
-    category,
-    stockKG,
-    purchasePrice,
-    sellingPrice,
-    addedOn,
-    unit,
-    barcode,
-  };
-
-  // Insert into MongoDB
-  await productsCollection.insertOne(product);
-  event.reply("add-product-response", { success: true, msg: "Product added!" });
+// getProducts API
+ipcMain.handle("get-products", async () => {
+  try {
+    const allProducts = await productsCollection.find();
+    return allProducts;
+  } catch (err) {
+    console.error("Error getting products", err);
+    return [];
+  }
 });
 
 const isDev = process.env.NODE_ENV !== "development";
