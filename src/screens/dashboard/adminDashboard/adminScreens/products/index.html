@@ -15,6 +15,7 @@
           <ul>
             <li><a href="../../index.html">Dashboard</a></li>
             <li class="active"><a href="./index.html">Products</a></li>
+            <li><a href="../users/index.html">Users</a></li>
             <li><a href="../reports/index.html">Reports</a></li>
             <li><a href="../sales/index.html">Sales</a></li>
             <li><a href="../settings/index.html">Settings</a></li>
@@ -26,7 +27,9 @@
         <div class="page-header">
           <h1 class="page-title">Product Management</h1>
           <!-- <button id="openModalBtn" class="add-product-btn">Add Product</button> -->
-          <button id="add-product-btn" class="add-product-btn">Add Product</button>
+          <button id="add-product-btn" class="add-product-btn">
+            Add Product
+          </button>
         </div>
 
         <div class="search-filter-bar">
@@ -55,7 +58,6 @@
           <table class="products-table">
             <thead>
               <tr>
-                <th>Image</th>
                 <th>Product</th>
                 <th>Category</th>
                 <th>Price</th>
@@ -66,15 +68,7 @@
             <tbody id="tableBody">
               <tr>
                 <td>
-                  <img
-                    src="https://via.placeholder.com/50"
-                    alt="Gaming Mouse"
-                    class="product-image"
-                  />
-                </td>
-                <td>
                   <div class="product-name">Gaming Mouse RGB</div>
-                  <div class="product-category">Electronics</div>
                 </td>
                 <td>Electronics</td>
                 <td class="product-price">$59.99</td>
@@ -248,24 +242,9 @@
             </form>
           </div>
         </div>
-
-        <div class="pagination">
-          <div class="page-info">Showing 1-8 of 24 products</div>
-          <div class="page-controls">
-            <button class="page-btn">
-              <i class="fas fa-chevron-left"></i>
-            </button>
-            <button class="page-btn active">1</button>
-            <button class="page-btn">2</button>
-            <button class="page-btn">3</button>
-            <button class="page-btn">
-              <i class="fas fa-chevron-right"></i>
-            </button>
-          </div>
-        </div>
       </main>
     </div>
 
-    <script src="renderer.js"></script>
+    <script type="module" src="renderer.js"></script>
   </body>
 </html>

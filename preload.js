@@ -17,4 +17,9 @@ contextBridge.exposeInMainWorld("electronAPI", {
   addProduct: (data) => ipcRenderer.send("add-product", data),
   receiveproductResponse: (callback) =>
     ipcRenderer.on("add-product-response", (event, data) => callback(data)),
+
+  addUser: (data) => ipcRenderer.send("add-user", data),
+  receiveaddUserResponse: (callback) =>
+    ipcRenderer.on("add-user-response", (event, data) => callback(data)),
+
 });
