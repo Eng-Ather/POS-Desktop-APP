@@ -166,20 +166,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // Get form values
       const formData = {
-        fullName: document.getElementById("user-fullname").value,
         username: document.getElementById("user-username").value,
         email: document.getElementById("user-email").value,
         phone: document.getElementById("user-phone").value,
         password: document.getElementById("user-password").value,
         role: document.getElementById("user-role").value,
-        location: document.getElementById("user-location").value,
         status: document.getElementById("user-status").value,
         notes: document.getElementById("user-notes").value,
-        permissions: getSelectedPermissions(),
       };
 
       // Here you would typically send this data to your backend
       console.log("User data:", formData);
+
+      window.electronAPI.addUser(formData);
+
+      window.electronAPI.receiveaddUserResponse((res) => {
+        console.log(res);
+      });
 
       // Show success message
       const successMessage = document.getElementById("success-message");
@@ -192,7 +195,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Optional: Reset form
         userForm.reset();
-        resetPasswordStrength();
       }, 2000);
     });
   }
@@ -211,7 +213,6 @@ document.addEventListener("DOMContentLoaded", () => {
     );
     return Array.from(checkboxes).map((checkbox) => checkbox.value);
   }
-
 
   // Select all users checkbox functionality
   const selectAllCheckbox = document.getElementById("select-all-users");

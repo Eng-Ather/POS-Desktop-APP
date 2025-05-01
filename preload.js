@@ -2,10 +2,6 @@
 const { contextBridge, ipcRenderer } = require("electron");
 
 contextBridge.exposeInMainWorld("electronAPI", {
-  signUpUser: (data) => ipcRenderer.send("signup-user", data),
-  receiveSignupResponse: (callback) =>
-    ipcRenderer.on("signup-response", (event, data) => callback(data)),
-
   signinUser: (data) => ipcRenderer.send("signin-user", data),
   receiveSigninResponse: (callback) =>
     ipcRenderer.on("signin-response", (event, data) => callback(data)),
@@ -21,5 +17,7 @@ contextBridge.exposeInMainWorld("electronAPI", {
   addUser: (data) => ipcRenderer.send("add-user", data),
   receiveaddUserResponse: (callback) =>
     ipcRenderer.on("add-user-response", (event, data) => callback(data)),
+
+  getProducts: () => ipcRenderer.invoke("get-products"),
 
 });
